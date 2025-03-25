@@ -2,8 +2,14 @@ import React from "react";
 
 import { getShoeDetailById } from "@/app/service/shoeApi";
 import { IShoeType } from "@/app/types/shoe";
+import Image from "next/image";
 
-const DetailShoePage = async ({ params }: any) => {
+interface ParamProps {
+  params: Promise<{
+    stt: number;
+  }>;
+}
+const DetailShoePage = async ({ params }: ParamProps) => {
   const { stt } = await params;
   console.log("stt: ", stt);
 
@@ -13,7 +19,7 @@ const DetailShoePage = async ({ params }: any) => {
     <div key={shoeDetail?.id}>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-          <img className="rounded-t-lg" src={shoeDetail?.image} alt="" />
+          <Image className="rounded-t-lg" src={shoeDetail?.image} alt="" />
         </a>
         <div className="p-5">
           <a href="#">

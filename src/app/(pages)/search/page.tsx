@@ -1,10 +1,10 @@
 import SearchShoe from "@/app/components/SearchShoe";
 import { getListProductByKeyWord } from "@/app/service/shoeApi";
-
-import React, { useState } from "react";
-
-const SearchPage = async ({ searchParams }) => {
-  const { tenGiay } = searchParams;
+type SearchProp = {
+  searchParams: Promise<{ tenGiay: string }>;
+};
+const SearchPage = async ({ searchParams }: SearchProp) => {
+  const { tenGiay } = await searchParams;
   console.log("tenGiay : ", tenGiay);
 
   const listInitShoe = await getListProductByKeyWord(tenGiay);

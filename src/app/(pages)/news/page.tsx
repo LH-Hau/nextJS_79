@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { getListShoeAPI } from "@/app/service/shoeApi";
 import { IShoeType } from "@/app/types/shoe";
+import Image from "next/image";
 
 const News = async () => {
   const dataListShoe: IShoeType[] = await getListShoeAPI();
@@ -14,7 +15,7 @@ const News = async () => {
         <div key={shoe.id}>
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-              <img className="rounded-t-lg" src={shoe.image} alt="" />
+              <Image className="rounded-t-lg" src={shoe.image} alt="" />
             </a>
             <div className="p-5">
               <a href="#">

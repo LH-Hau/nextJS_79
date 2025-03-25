@@ -2,6 +2,7 @@
 
 import { getListShoeAPI } from "@/app/service/shoeApi";
 import { IShoeType } from "@/app/types/shoe";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const About = () => {
@@ -33,11 +34,11 @@ const About = () => {
 
   return (
     <div className="grid grid-cols-4 gap-4">
-      {listShoe?.map((shoe, index) => (
+      {listShoe?.map((shoe) => (
         <div key={shoe.id}>
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
-              <img className="rounded-t-lg" src={shoe.image} alt="" />
+              <Image className="rounded-t-lg" src={shoe.image} alt="" />
             </a>
             <div className="p-5">
               <a href="#">
